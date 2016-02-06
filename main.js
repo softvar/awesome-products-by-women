@@ -55,14 +55,18 @@ function expandUrl(shortUrl) {
 }
 
 function getMakersString(makers) {
-    var makersString = '';
+    var makersString = '', makersOnTwitter = '';
     for (var i = 0; i < makers.length; i++) {
         if (i !== 0) {
             makersString += ', ';
         }
         makersString += '[' + makers[i].name + '](https://twitter.com/' + makers[i].twitter_username + ')';
+        makersOnTwitter += '@' + makers[i].twitter_username;
     }
-    return makersString;
+    return {
+        makersString: makersString,
+        makersOnTwitter: makersOnTwitter
+    };
 }
 
 function getActualUrlFromRedirectUrl(collectionPosts, index) {
@@ -71,15 +75,25 @@ function getActualUrlFromRedirectUrl(collectionPosts, index) {
     var name = collectionPosts[index].name,
         tagline = collectionPosts[index].tagline,
         makers = getMakersString(collectionPosts[index].makers);
+        makersString = makers.makersString,
+        makersOnTwitter = makers.makersOnTwitter || '';
 
+    console.log('Currently processing index = ', index);
     expandUrl(collectionPosts[index].redirect_url).then(function(urlData) {
         var url = urlData.request.uri.hostname;
+        if (!/^https?:\/\//i.test(url)) {
+            url = 'http://' + url;
+        }
 
         if (url.indexOf('producthunt.com') > -1) { url = ''; }
         products += '\n\n\n' + (index + 1) + '. [' + name + '](' + url + ') \n\n  **Description** - ' + tagline;
-        if (makers) {
-            products += '\n\n  **Makers** - ' + makers;
+        if (makersString) {
+            products += '\n\n  **Makers** - ' + makersString;
         }
+
+        makersOnTwitter += ' ' + url + ' as mentioned on https://github.com/softvar/awesome-products-by-women';
+
+        products += '\n\n  [<img src="https://static.addtoany.com/images/blog/tweet-button-2015.png" alt="Twitter logo" width="80" height="30"/>](https://twitter.com/intent/tweet?text=' + makersOnTwitter + '&hashtags=FemaleFounders&via=s0ftvar)'
 
         ++index;
         if (index < collectionPosts.length) {
