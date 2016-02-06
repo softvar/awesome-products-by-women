@@ -1,7 +1,10 @@
 var readmeContent;
 
 readmeContent = '\n\n' +
-'## Contribution' +
+'[<img src="https://static.addtoany.com/images/blog/tweet-button-2015.png" alt="Twitter logo" width="80" height="30"/>](https://twitter.com/intent/tweet?text=Curated%20List%20of%20Awesome%20Products%20by%20women%20@corleyh%20@ProductHunt&url=https://github.com/softvar/awesome-products-by-women&hashtags=FemaleFounders&via=s0ftvar)'
+'\n\n## Source' +
+'List of first 82 products was curated by [Corley](https://twitter.com/Corleyh)' +
+'\n\n## Contribution' +
 '\n* Clone this repo' +
 '\n* Create a new branch(prefixing your github username). For eg. softvar-fixed-typo or softvar-updated-list' +
 '\n* Update the list of products or any cosmetic fix' +
