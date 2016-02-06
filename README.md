@@ -1,5 +1,6 @@
 <p align="center"><img src="https://aws.producthunt.com/collection/15467/header_banner_collection_header_woman_in_tech.jpg" alt="Female Founders"/><strong>Great stuff made by women 🙌</strong></p>
-### List of products
+
+### List of products :heart:
 
 1. [Front 2.0](frontapp.com)
 

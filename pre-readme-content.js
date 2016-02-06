@@ -6,6 +6,6 @@ readmeContent = '' +
 		'<strong>Great stuff made by women 🙌</strong>' +
 	'</p>';
 
-readmeContent += '\n### List of products \n\n';
+readmeContent += '\n\n### List of products :heart: \n';
 
 exports.readmeContent = readmeContent;
