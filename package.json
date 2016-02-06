@@ -1,0 +1,12 @@
+{
+  "name": "awesome-products-by-women",
+  "description": "List of awesome products made by female founders",
+  "version": "0.1.0",
+  "author": "Varun Malhotra",
+  "devDependencies": {
+  },
+  "dependencies": {
+    "q": "^1.4.1",
+    "request": "2.67.0"
+  }
+}
